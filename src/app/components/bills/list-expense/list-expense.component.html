@@ -1,0 +1,42 @@
+<div class="mt-4 mt-lg-0 bg-white rounded-4 p-3 shadow">
+  <div class="d-flex justify-content-center align-items-center mb-3 gap-3">
+    <h2 class="text-center title-list">Listado de Gastos</h2>
+    <span> - </span>
+    <span class="badge bg-info">Total gastado: {{totalAmount || 0 | currency:"S/ "}}</span>
+  </div>
+  
+  <div class="style-table">
+    <table class="table table-hover">
+      <thead class="table-dark">
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Gasto</th>
+          <th scope="col">Monto</th>
+          <th scope="col">Categoría</th>
+          <th scope="col">Opciones</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr *ngFor="let budget of budgetList; let i = index">
+          <th scope="row">{{i + 1}}</th>
+          <td>{{budget.budget}}</td>
+          <td>{{budget.amount}}</td>
+          <td>{{budget.category}}</td>
+          <td class="d-flex gap-2">
+            <button type="button" class="btn btn-warning" (click)="editBudget({index: i, budget})">
+                <i class="fa-solid fa-pen-to-square"></i>
+                Editar
+            </button>
+            <button type="button" (click)="deleteBudget(i)" class="btn btn-danger">
+                <i class="fa-solid fa-trash"></i>
+                Eliminar
+            </button>
+          </td>
+        </tr>
+
+      </tbody>
+    </table>
+   
+  </div>
+</div>

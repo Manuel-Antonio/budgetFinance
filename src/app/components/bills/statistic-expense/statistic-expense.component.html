@@ -1,0 +1,51 @@
+<div
+  class="mt-lg-0 mt-4 bg-white h-100 d-flex justify-content-center align-content-center rounded-4 shadow p-3"
+>
+  <div class="row m-auto justify-content-center gap-4">
+    <div class="d-md-grid gap-2">
+      <button
+        type="button"
+        class="btn btn-success"
+        (click)="resetApp()"
+      >
+        Resetear App
+      </button>
+      <button type="button" routerLink="enterbudget" class="btn btn-warning">
+        Modificar presupuesto
+      </button>
+    </div>
+    <circle-progress
+      class="d-flex justify-content-center circle-progress"
+      [percent]="percentageCircle"
+      [maxPercent]="100"
+      [radius]="90"
+      [outerStrokeWidth]="14"
+      [innerStrokeWidth]="8"
+      [outerStrokeColor]="outerColorCircle"
+      [innerStrokeColor]="'#F4F4F4'"
+      [animation]="true"
+      [animationDuration]="300"
+      titleFontSize="36"
+      titleFontWeight="900"
+      [titleColor]="outerColorCircle"
+      unitsFontSize="20"
+      unitsFontWeight="900"
+      [unitsColor]="outerColorCircle"
+      [showSubtitle]="false"
+      [toFixed]="2"
+      [lazy]="true"
+    ></circle-progress>
+    <div class="row justify-content-between align-content-center">
+      <div class="col-xl-6 text-xl-start text-center">
+        <div class="badge bg-success">
+          Total: {{ quantityBudget | currency : "S/ " }}
+        </div>
+      </div>
+      <div class="col-xl-6 text-xl-end text-center my-2 my-xl-0">
+        <div class="badge bg-dark">
+          Restante: {{ remainingAmount | currency : "S/ " }}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

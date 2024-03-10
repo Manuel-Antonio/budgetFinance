@@ -1,0 +1,10 @@
+.style-table {
+    height: 280px;
+    overflow-y: auto;
+}
+.title-list {
+    font-weight: 900;
+}
+.badge {
+    font-size: 1.2rem;
+}

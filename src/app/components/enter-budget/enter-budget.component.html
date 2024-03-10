@@ -1,0 +1,32 @@
+<div class="container">
+  <div class="row justify-content-center mt-5">
+    <div class="col-lg-8">
+      <div class="card">
+        <div class="card-body">
+          <h2 class="title">Ingresar Presupuesto</h2>
+          <input
+            type="number"
+            class="form-control form-control-lg input-count mt-4"
+            placeholder="0"
+            [(ngModel)]="quantityBudget"
+            min="1"
+          />
+          <div class="mt-2" *ngIf="statusError">
+            <app-error [messageError]="messageError"></app-error>
+          </div>
+          <div class="d-grid gap-2 mt-4">
+            <button
+              type="button"
+              class="btn btn-primary"
+              type="button"
+              (click)="applyQuantityBudget()"
+            >
+              Aplicar Presupuesto
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

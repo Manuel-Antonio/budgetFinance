@@ -1,0 +1,48 @@
+<form
+  [formGroup]="frmBudget"
+  (ngSubmit)="submitBudget()"
+  class="styleFrmExpense bg-white p-4 rounded-4 shadow h-100 d-flex flex-column justify-content-center align-content-center"
+>
+  <div class="mb-3">
+    <label for="nameSpent" class="form-label">Gasto</label>
+    <input
+      type="text"
+      class="form-control"
+      id="nameSpent"
+      placeholder="Nombre del gasto"
+      formControlName="budget"
+    />
+  </div>
+  <div class="mb-3">
+    <label for="amount" class="form-label">Monto</label>
+    <input
+      type="number"
+      class="form-control"
+      id="amount"
+      placeholder="Escribe el gasto"
+      formControlName="amount"
+      min="0"
+    />
+  </div>
+  <div class="mb-3">
+    <label for="category" class="form-label">Categoría</label>
+    <select
+      class="form-select"
+      id="category"
+      formControlName="category"
+    >
+      <option disabled >-- Seleccione una opcion --</option>
+      <option [value]="category.name" *ngFor="let category of categoryList">
+        {{ category.name }}
+      </option>
+    </select>
+  </div>
+  <div class="my-2" *ngIf="statusError">
+    <app-error [messageError]="messageError"></app-error>
+  </div>
+  <div class="d-grid gap-2">
+    <button type="submit" class="btn " [ngClass]="modeEditBudget ? 'btn-warning': 'btn-primary'">
+      {{modeEditBudget ? 'Guardar cambios' : 'Agregar gasto'}} 
+    </button>
+  </div>
+</form>
